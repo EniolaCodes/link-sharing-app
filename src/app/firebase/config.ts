@@ -25,4 +25,7 @@ const analytics: Analytics | undefined =
     ? getAnalytics(app)
     : undefined;
 
+    console.log('Firebase Config:', firebaseConfig);
+
+
 export { app, auth, db, storage, analytics };
