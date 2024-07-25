@@ -1,12 +1,14 @@
-module.exports = {
+import type { Config } from '@jest/types';
+
+const config: Config.InitialOptions = {
   preset: 'ts-jest',
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  testMatch: ['**/?(*.)+(spec|test).[tj]s?(x)'],
+  testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
   transform: {
     '^.+\\.(ts|tsx)?$': 'ts-jest',
   },
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   coverageDirectory: 'coverage',
   collectCoverage: true,
   collectCoverageFrom: [
@@ -15,3 +17,5 @@ module.exports = {
     '!src/**/*.config.ts',
   ],
 };
+
+export default config;
